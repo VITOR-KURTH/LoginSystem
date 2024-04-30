@@ -23,6 +23,11 @@ public class AuthController {
  this.usuarioRepository = usuarioRepository;
  }
 
+  @PostMapping("/cadastro")
+    public Usuario criarUsuario(@RequestBody Usuario usuario) {
+        return usuarioRepository.save(usuario);
+    }
+    
  @PostMapping("/login")
  public Boolean login(@RequestBody Usuario usuario) {
  List<Usuario> usuarios = usuarioRepository.findAll();
